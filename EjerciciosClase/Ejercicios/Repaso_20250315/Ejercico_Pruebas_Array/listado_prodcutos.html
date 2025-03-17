@@ -11,9 +11,9 @@
 
     <form action="">
         <label for="products">Inserte Prodcutos:</label>
-        <input type="text" name="products" id="prodcuts">
+        <input type="text" name="products" id="products" >
 
-        <input type="button" value="Guardar" id="submits">
+        <input type="button" value="Guardar" id="submits" onclick="insertProdcts()">
     </form>
 
     <ol id="list"></ol>
@@ -21,13 +21,28 @@
 
     <script>
 
-        const prodcuts = document.getElementById("prodcuts").value;
+        const products = document.getElementById("products");
         const listado = document.getElementById("list");
 
         list = [];
 
         function insertProdcts(){
-                
+           const productos = Array.from(products.value.split(","));
+            
+
+            productos.forEach(producto => {
+               //Berificar si el prodcuto ya existe , si existe que no lo inserte en la lista
+                list.push(producto);
+            });
+
+            list.forEach(elemento => {
+                const li = document.createElement("li");
+                li.textContent = elemento;
+                console.log(elemento);
+                listado.appendChild(li);
+            });
+
+           
         }
     </script>
 </body>
