@@ -1,0 +1,4 @@
+/**
+ * Esta es la carpeta que se usara para hacer los ejercios de clase para js
+ *
+**/
