@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array.from</title>
+</head>
+<body>
+    
+    <h1>Guardar Productos</h1>
+
+    <form>
+        <label for="prodcuts">Inserte los productos</label>
+        <input type="text" name="prodcuts" id="prodcuts">
+        <input type="button" value="Guardar" id="submit" onclick="insertProducts()"> 
+    </form>
+
+    <script>
+        function insertProducts(){
+            const products = document.getElementById('prodcuts').value;
+            const list = Array.from(products.split(","));
+
+            
+            alert("Los Productos '" + list + "' guardados correctamente");
+        }
+    </script>
+</body>
+</html>
