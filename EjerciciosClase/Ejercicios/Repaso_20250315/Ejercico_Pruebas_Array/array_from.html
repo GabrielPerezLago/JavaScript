@@ -14,14 +14,18 @@
         <input type="text" name="prodcuts" id="prodcuts">
         <input type="button" value="Guardar" id="submit" onclick="insertProducts()"> 
     </form>
-
+    <p id="list"></p>
     <script>
+
         function insertProducts(){
             const products = document.getElementById('prodcuts').value;
             const list = Array.from(products.split(","));
 
+            const listPrinted = document.getElementById("list");
             
-            alert("Los Productos '" + list + "' guardados correctamente");
+            alert("Los Productos guardados con exito");
+
+            listPrinted.textContent = list;
         }
     </script>
 </body>
