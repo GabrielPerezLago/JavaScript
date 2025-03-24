@@ -1,0 +1,8 @@
+//EjercicioUNo
+
+dos inputs type text, donde inserte en uno la nota de los alumnos y en otro los nombres , separados por comas
+luego los procesa en una tabla donde las notas se generan aleatoriamente emtre 0 y 10 con dos decimales
+
+se calculan las medias por asignatura y se calculan las media por alumno.
+las notas se guardan con colores 4 colores btw(0y3):rojo btw(3y5):amarillo, btw(5y7):azul, btw(7y10):verde
+solo notas alumnos , el resto de celdas el hacer :hover se orcurecen en un tono grisaceo
