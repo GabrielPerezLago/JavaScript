@@ -24,57 +24,62 @@ function main() {
   
     // Aqui se crea y se genera la tabla
     const table = document.createElement("table");
-    table.className = "table table-striped table-bordered"; // Clases de Bootstrap para estilizar la tabla
-  
+    table.className = "table table-striped table-bordered pasar";
+    
     const thead = document.createElement("thead");
-    thead.className = "table-dark"; // Clase de Bootstrap para un encabezado oscuro
-  
+    thead.className = "table pasar";
+    
     const tbody = document.createElement("tbody");
-  
+    
     // Crear encabezado de la tabla
     const trEncabezado = document.createElement("tr");
-  
+    trEncabezado.className = "pasar";
+    
     const thAlumno = document.createElement("th");
     thAlumno.textContent = "Alumnos";
+    thAlumno.className = "pasar";
     trEncabezado.appendChild(thAlumno);
-  
+    
     const thMedia = document.createElement("th");
     thMedia.textContent = "Media";
-  
+    thMedia.className = "pasar";
+    
     asignaturas.forEach((asignatura) => {
       const th = document.createElement("th");
       th.textContent = asignatura;
+      th.className = "pasar";
       trEncabezado.appendChild(th);
     });
     trEncabezado.appendChild(thMedia);
-  
+    
     thead.appendChild(trEncabezado);
-  
+    
     const trMedia = document.createElement("tr");
     // Crear filas de la tabla
     alumnos.forEach((alumno) => {
       const tr = document.createElement("tr");
-  
+      tr.className = "pasar";
+    
       const tdAlumnos = document.createElement("td");
       tdAlumnos.textContent = alumno;
-      tdAlumnos.className = "fw-bold"; // Clase de Bootstrap para texto en negrita
+      tdAlumnos.className = "fw-bold pasar";
       tr.appendChild(tdAlumnos);
-  
+    
       // Calcular las medias de los alumnosç
-  
+    
       //Guardar las notas de los alumnos para despues hacer la media.
       const notasAlumno = [];
-  
+    
       asignaturas.forEach((asignatura) => {
         const tdNotas = document.createElement("td");
-  
+    
         const nota = notas.find(
           (nota) => nota[0] === alumno && nota[1] === asignatura
         );
-  
+    
         tdNotas.textContent = nota[2];
         notasAlumno.push(parseFloat(nota[2]));
-  
+    
         // Aplicar colores según la nota
         if (nota[2] < 3 && nota[2] >= 0) {
           tdNotas.style.backgroundColor = "red";
@@ -85,27 +90,28 @@ function main() {
         } else if (nota[2] > 7 && nota[2] <= 10) {
           tdNotas.style.backgroundColor = "green";
         }
-  
+    
         tr.appendChild(tdNotas);
       });
-  
+    
       const tdMediaAlumnos = document.createElement("td");
       tdMediaAlumnos.textContent = calcularMedia(notasAlumno);
-      tdMediaAlumnos.className = "fw-bold";
+      tdMediaAlumnos.className = "fw-bold pasar";
       tr.appendChild(tdMediaAlumnos);
-  
+    
       tbody.appendChild(tr);
     });
-  
+    
     const trMediasAsignaturas = document.createElement("tr");
+    trMediasAsignaturas.className = "pasar";
     const tdTituloMediasAsignaturas = document.createElement("td");
     tdTituloMediasAsignaturas.textContent = "Media";
-    tdTituloMediasAsignaturas.className = "fw-bold"; // Clase de Bootstrap para texto en negrita
+    tdTituloMediasAsignaturas.className = "fw-bold pasar";
     trMediasAsignaturas.appendChild(tdTituloMediasAsignaturas);
-  
+    
     asignaturas.forEach((asignatura) => {
       const notasAsignatura = [];
-  
+    
       // Sumar las notas de todos los alumnos para esta asignatura
       alumnos.forEach((alumno) => {
         const nota = notas.find(
@@ -113,17 +119,19 @@ function main() {
         );
         notasAsignatura.push(parseFloat(nota[2]));
       });
-  
+    
       const tdMediaAsignatura = document.createElement("td");
       tdMediaAsignatura.textContent = calcularMedia(notasAsignatura);
+      tdMediaAsignatura.className = "pasar";
       trMediasAsignaturas.appendChild(tdMediaAsignatura);
     });
-  
+    
     const tdVacio = document.createElement("td");
+    tdVacio.className = "pasar";
     trMediasAsignaturas.appendChild(tdVacio);
-  
+    
     tbody.appendChild(trMediasAsignaturas);
-  
+    
     table.appendChild(thead);
     table.appendChild(tbody);
     contenedor.appendChild(table);
