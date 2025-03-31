@@ -5,22 +5,34 @@ function main() {
     const contenedor = document.getElementById("contenedor-tabla");
     contenedor.innerHTML = ""; // aqui lo vaciamos para despues actualizar la tabla
   
+    //Tomar datos de los inputs de alumnos y asignaturas
     const alumnosInput = document.getElementById("alumnos").value;
     const asignaturasInput = document.getElementById("asignaturas").value;
-  
+
+
+
+    // Comprobar si los inputs están vacíos
+    // Si alguno de los inputs está vacío, mostrar un mensaje de error y salir de la función
     if (!alumnosInput || !asignaturasInput) {
       const errorMensaje = document.createElement("p");
       errorMensaje.textContent =
         "Error: Debe insertar datos en ambos campos (Alumnos y Asignaturas).";
-      errorMensaje.className = "text-danger text-center fw-bold"; // Clases de Bootstrap para estilizar el mensaje
+      errorMensaje.className = "text-danger text-center fw-bold"; 
       contenedor.appendChild(errorMensaje);
       return;
     }
-  
+
+
+
+    // Procesar los datos de los inputs como arrays 
     const alumnos = procesarDatos(alumnosInput.split(","));
     const asignaturas = procesarDatos(asignaturasInput.split(","));
   
+    // Crear las notas aleatorias para cada alumno y asignatura
+    // y guardarlas en un array de notas
     const notas = asignarNotas(alumnos, asignaturas);
+
+
   
     // Aqui se crea y se genera la tabla
     const table = document.createElement("table");
@@ -41,7 +53,7 @@ function main() {
     trEncabezado.appendChild(thAlumno);
     
     const thMedia = document.createElement("th");
-    thMedia.textContent = "Media";
+    thMedia.textContent = "Media Alumnos";
     thMedia.className = "pasar";
     
     asignaturas.forEach((asignatura) => {
@@ -54,7 +66,7 @@ function main() {
     
     thead.appendChild(trEncabezado);
     
-    const trMedia = document.createElement("tr");
+    
     // Crear filas de la tabla
     alumnos.forEach((alumno) => {
       const tr = document.createElement("tr");
@@ -64,8 +76,6 @@ function main() {
       tdAlumnos.textContent = alumno;
       tdAlumnos.className = "fw-bold pasar";
       tr.appendChild(tdAlumnos);
-    
-      // Calcular las medias de los alumnosç
     
       //Guardar las notas de los alumnos para despues hacer la media.
       const notasAlumno = [];
@@ -105,7 +115,7 @@ function main() {
     const trMediasAsignaturas = document.createElement("tr");
     trMediasAsignaturas.className = "pasar";
     const tdTituloMediasAsignaturas = document.createElement("td");
-    tdTituloMediasAsignaturas.textContent = "Media";
+    tdTituloMediasAsignaturas.textContent = "Media Asignaturas";
     tdTituloMediasAsignaturas.className = "fw-bold pasar";
     trMediasAsignaturas.appendChild(tdTituloMediasAsignaturas);
     
@@ -138,6 +148,13 @@ function main() {
   
 }
 
+/**
+ * 
+ * @param {*} alumnos 
+ * @param {*} asignaturas 
+ * @returns {Array} Array de notas aleatorias 
+ * Esta funcion se encarga de crear notas aleatorias para cada alumno y asignatura.
+ */
 function asignarNotas(alumnos, asignaturas) {
   const notas = [];
   alumnos.forEach((alumno) => {
@@ -149,6 +166,13 @@ function asignarNotas(alumnos, asignaturas) {
   return notas;
 }
 
+/**
+ * 
+ * @param {*} datos 
+ * @returns {Array} Array de datos procesados
+ * Esta funcion se encarga de transformar en un array los datos de los inputs
+ * que se le pasan como parametros.
+ */
 function procesarDatos(datos) {
   const resultado = [];
 
@@ -158,9 +182,21 @@ function procesarDatos(datos) {
   return resultado;
 }
 
+/**
+ * 
+ * @returns {Number} Nota aleatoria
+ * Esta funcion se encarga de crear una nota aleatoria entre 0 y 10
+ */
 function crearNotasRandom() {
   return (Math.random() * 10).toFixed(2);
 }
+
+/**
+ * 
+ * @param {*} notas 
+ * @returns {Number} Media de las notas
+ * Esta funcion se encarga de calcular la media de un array de notas que se le pasan como parametro.
+ */
 
 function calcularMedia(notas) {
   const media =
