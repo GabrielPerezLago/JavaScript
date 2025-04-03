@@ -1,0 +1,6 @@
+Api Js Drag, DragHover, Drop:
+https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types#image
+
+Ejemplo de W3Schools de drag and drop:
+https://www.w3schools.com/html/html5_draganddrop.asp
+https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_draganddrop
