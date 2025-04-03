@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Perros Y Gatos</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+    <style>
+        .contenedor {
+            width: 500px;
+            height: 600px;
+            background-color: gainsboro;
+            border-radius: 20px;
+        }
+
+        .carrousel {
+            width: 100%;
+            height: 100%;
+            background-color: gainsboro;
+            border-radius: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container text-center col-12 col-lg-12">
+        <h1>Perros Y Gatos</h1>
+    </div>
+    <div class="container text-center col-12 col-lg-12 d-flex justify-content-between">
+        <div class="row mt-4 contenedor me-3 drop-zone" id="perros-container">
+            <div class="col-md-12">
+                <h2>Perros</h2>
+                <div id="perros" class="d-flex flex-wrap justify-content-center h-100"></div>
+            </div>
+        </div>
+        <div class="row mt-4 contenedor me-3 drop-zone" id="gatos-container">
+            <div class="col-md-12">
+                <h2>Gatos</h2>
+                <div id="gatos" class="d-flex flex-wrap justify-content-center h-100"></div>
+            </div>
+        </div>
+    </div>
+    <div class="container text-center col-10 carrousel mt-4 mb-2">
+        <div class="row">
+            <div class="alert">
+                <h2>Imagenes</h2>
+                <div id="imagenes"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/perrosGatos.js"></script>
+</body>
+
+</html>
