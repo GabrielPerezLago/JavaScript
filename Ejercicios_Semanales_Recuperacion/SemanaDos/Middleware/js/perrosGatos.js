@@ -21,11 +21,8 @@ const gatos = [
 ];
 
 function generateCarrousel(){
-   
     const arrImg = [...perros, ...gatos];
-    
-    const arrALeatorio = arrImg.sort(() => Math.random() - 0.5);
-    
+    const arrALeatorio = arrImg.sort(() => Math.random() - 0.5); //sort hace que los elementos de la array sean ordenados , y al pasarle mat random se aleotizan por que pasan un numero entre 0 y 1  , los menos son los primeros ,los mayores son los ultimos y si es 0 se quedan.
     return arrALeatorio;
 }
 
@@ -91,7 +88,5 @@ function soltar(event){
     }
     
 }
-
-
 
 document.body.onload = main;
