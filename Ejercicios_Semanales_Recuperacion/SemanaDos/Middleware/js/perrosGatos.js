@@ -71,6 +71,7 @@ function arrastrarSobre(event){
     event.preventDefault();
 }
 
+
 function soltar(event){
     event.preventDefault();
     const data = event.dataTransfer.getData("imagen");
