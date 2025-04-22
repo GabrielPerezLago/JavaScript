@@ -32,9 +32,33 @@ function createTask(){
 }
 
 function printTask(arr){
-    const _contenedor = getElementById('contenedor-tasks');
+
+    const _contenedor = document.getElementById("contenedor-tasks");
+    _contenedor.innerHTML = "";
+    arr.forEach((tarea) => {
+        const cardContainer = document.createElement('div');
+        cardContainer.className = 'card';
+        cardContainer.style = "width: 18rem";
+
+        const cardBody = document.createElement('div');
+        cardBody.className = 'card-body';
+        const cardTittle = document.createElement("h2");
+        cardTittle.className = 'card-title';
+        const cardText = document.createElement('p');
+        cardBody.className = 'card-text';
+        
+        cardTittle.textContent = tarea.id + "-" + tarea.nombre;
+        cardText.textContent = tarea.descripcion;
+        
+        cardBody.appendChild(cardTittle);
+        cardBody.appendChild(cardText);
+        cardContainer.appendChild(cardBody);
+        _contenedor.appendChild(cardContainer);
+    });
+
     
-    
+
+
 }
 
 const _createTask = document.getElementById('crear');
