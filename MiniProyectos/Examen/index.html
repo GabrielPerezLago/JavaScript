@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen</title>
+</head>
+
+<body>
+    <script>
+
+        function main() {
+            const formContainer = document.createElement('div');
+            const form = document.createElement('form');
+
+            const label = document.createElement('label');
+            label.textContent = "Productos: ";
+
+            const input = document.createElement('input');
+            input.type = "text";
+            input.id = "productos";
+            input.name = "productos";
+
+            const button = document.createElement('input');
+            button.type = 'button';
+            button.value = "Procesar";
+
+            button.addEventListener("click", procesarDatos);
+
+            form.appendChild(label);
+            form.appendChild(input);
+            form.appendChild(button);
+
+            formContainer.appendChild(form);
+
+            document.body.appendChild(formContainer);
+        }
+
+        function procesarDatos(){
+            const dataInput = document.getElementById('productos').value.split(',');
+            
+            console.log(dataInput);
+
+            const productos = dataInput.map(p => ({nombre : p, fecha: new Date()}));
+
+            console.log(productos);
+            
+        }
+
+
+        document.addEventListener("DOMContentLoaded", main);
+    </script>
+</body>
+
+</html>
